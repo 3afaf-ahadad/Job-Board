@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('title');
+            $table->text('desc');
+            $table->integer('salary')->nullable();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
