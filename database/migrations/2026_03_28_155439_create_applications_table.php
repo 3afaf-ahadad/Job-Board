@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('listing_id')->constrained();
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }
