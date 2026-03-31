@@ -12,8 +12,8 @@ class Listing extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['title', 'desc' ];
-    public function users(): BelongsTo
+    protected $guarded = [];
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

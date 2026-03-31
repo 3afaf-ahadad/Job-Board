@@ -12,8 +12,8 @@ class ListingController extends Controller
      */
     public function index()
     {
-        $allListings = Listing::all();
-        return view('listings.index', ['listings' => $allListings]);
+        $listings = Listing::all();
+        return view('listings.index', compact('listings'));
     }
 
     /**
