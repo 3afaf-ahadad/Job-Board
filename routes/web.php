@@ -5,3 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/listings', [ListingController::class, 'index'])->name('listings.index');
+Route::get('/listings/{id}', [ListingController::class, 'show'])->name('listings.show');
+
+
