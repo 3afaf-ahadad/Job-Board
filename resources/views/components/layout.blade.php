@@ -13,7 +13,10 @@
     </nav>
 
     @if(session()->has('success'))
-    <div style="color: green; border: 1px solid green; padding: 10px; margin-bottom: 20px;">
+    <div x-data="{show : true}"
+        x-init="setTimeout(() => show = false, 4000)"
+        x-show="show"
+        class="transition-opacity duration-500">
         {{session('success')}}
     </div>
     @endif

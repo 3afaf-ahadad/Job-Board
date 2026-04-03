@@ -32,7 +32,7 @@ class ListingController extends Controller
     {
         Listing::create([
             'title' => $request->title,
-            'salary' => $request->title,
+            'salary' => $request->salary,
             'desc' => $request->desc,
             'user_id' => 1
         ]);
