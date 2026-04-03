@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
@@ -21,7 +22,7 @@ class ListingController extends Controller
      */
     public function create()
     {
-        //
+        return view('listings.create');
     }
 
     /**
@@ -29,7 +30,13 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Listing::create([
+            'title' => $request->title,
+            'salary' => $request->title,
+            'desc' => $request->desc,
+            'user_id' => 1
+        ]);
+        return redirect('/listings')->with('success', 'Listing created successfully !!');
     }
 
     /**
