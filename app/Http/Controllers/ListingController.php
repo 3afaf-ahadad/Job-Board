@@ -74,7 +74,7 @@ class ListingController extends Controller
         ]);
 
         $listing->update($formFields);
-        return redirect()->route('listing.show', ['id' => $id])->with('success', "Listing updated Successfully !!");
+        return redirect()->route('listings.show', ['id' => $id])->with('success', "Listing updated Successfully !!");
     }
 
     /**
