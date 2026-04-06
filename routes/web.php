@@ -9,4 +9,7 @@ Route::get('/listings', [ListingController::class, 'index'])->name('listings.ind
 Route::post('/listings/store', [ListingController::class, 'store'])->name('listings.store');
 Route::get('/listings/create', [ListingController::class, 'create'])->name('listings.create');
 
+Route::get('/listings/{id}/edit', [ListingController::class, 'edit'])->name('listings.edit');
+Route::put('/listings/{id}', [ListingController::class, 'update'])->name('listings.update');
+
 Route::get('/listings/{id}', [ListingController::class, 'show'])->name('listings.show');

@@ -30,12 +30,14 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        Listing::create([
-            'title' => $request->title,
-            'salary' => $request->salary,
-            'desc' => $request->desc,
-            'user_id' => 1
+        $formFields =  $request->validate([
+            'title' => ['required', 'min:3'],
+            'salary' => 'required',
+            'desc' => 'required',
         ]);
+
+        $formFields['user_id'] = 1;
+        Listing::create($formFields);
         return redirect('/listings')->with('success', 'Listing created successfully !!');
     }
 
@@ -53,7 +55,8 @@ class ListingController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $listing = Listing::find($id);
+        return view('listings.edit', ['listings' => $listing]);
     }
 
     /**
@@ -61,7 +64,16 @@ class ListingController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $listing = Listing::find($id);
+
+        $formFields =  $request->validate([
+            'title' => ['required', 'min:3'],
+            'salary' => 'required',
+            'desc' => 'required',
+        ]);
+
+        $listing->update($formFields);
+        return redirect("/listings/{$id}")->with('success', "Listing updated Successfully !!");
     }
 
     /**
