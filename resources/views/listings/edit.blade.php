@@ -1,5 +1,5 @@
 <x-layout>
-    <form action="{{ route( 'listing.show', [id => $listing->id]) }}" method="POST">
+    <form action="{{ route('listings.update', ['id' => $listing->id]) }}" method="POST">
     @csrf
     @method('PUT')
     <input type="text" name="title" value="{{ $listing->title }}" placeholder="Title">
