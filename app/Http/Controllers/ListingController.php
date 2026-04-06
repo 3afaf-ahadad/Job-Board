@@ -11,6 +11,7 @@ class ListingController extends Controller
     /**
      * Display a listing of the resource.
      */
+    protected $fillable = ['title', 'salary', 'desc', 'user_id'];
     public function index()
     {
         $listings = Listing::all();
@@ -73,7 +74,7 @@ class ListingController extends Controller
         ]);
 
         $listing->update($formFields);
-        return redirect("/listings/{$id}")->with('success', "Listing updated Successfully !!");
+        return redirect()->route('listing.show', ['id' => $id])->with('success', "Listing updated Successfully !!");
     }
 
     /**
