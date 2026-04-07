@@ -12,5 +12,6 @@ Route::get('/listings/create', [ListingController::class, 'create'])->name('list
 Route::put('/listings/{id}', [ListingController::class, 'update'])->name('listings.update');
 
 Route::get('/listings/{id}', [ListingController::class, 'show'])->name('listings.show');
+Route::delete('/listings/{id}', [ListingController::class, 'destroy'])->name('listings.destroy');
 
 Route::get('/listings/{id}/edit', [ListingController::class, 'edit'])->name('listings.edit');
