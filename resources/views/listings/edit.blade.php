@@ -8,4 +8,11 @@
 
     <button type="submit">Update Job</button>
     </form>
+    <form action="{{route('listings.destroy', ['id' => $listing->id])}}" method="POST">
+    @csrf
+    @method('DELETE') <button type="submit" onclick="return confirm('Are you sure?')">
+        Delete Job
+    </button>
+
+    </form>
 </x-layout>
