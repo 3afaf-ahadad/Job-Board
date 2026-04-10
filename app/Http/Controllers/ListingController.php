@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -57,6 +58,11 @@ class ListingController extends Controller
     public function edit(string $id)
     {
         $listing = Listing::find($id);
+
+        if ( $listing->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized Action !');
+        }
+
         return view('listings.edit', ['listing' => $listing]);
     }
 
