@@ -38,7 +38,7 @@ class ListingController extends Controller
             'desc' => 'required',
         ]);
 
-        $formFields['user_id'] = 1;
+        $formFields['user_id'] = Auth::id();
         Listing::create($formFields);
         return redirect('/listings')->with('success', 'Listing created successfully !!');
     }
