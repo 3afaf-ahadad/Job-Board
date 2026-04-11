@@ -58,7 +58,7 @@ class ListingController extends Controller
     public function edit(string $id)
     {
         $listing = Listing::find($id);
-
+        
         if ( $listing->user_id !== Auth::id()) {
             abort(403, 'Unauthorized Action !');
         }
@@ -72,6 +72,10 @@ class ListingController extends Controller
     public function update(Request $request, string $id)
     {
         $listing = Listing::find($id);
+
+        if ( $listing->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized Action !');
+        }
 
         $formFields =  $request->validate([
             'title' => ['required', 'min:3'],
@@ -89,6 +93,10 @@ class ListingController extends Controller
     public function destroy(string $id)
     {
         $listing = Listing::find($id);
+
+        if ( $listing->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized Action !');
+        }
 
         $listing->delete();
 
