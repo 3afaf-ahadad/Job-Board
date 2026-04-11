@@ -22,9 +22,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/listings/{id}', [ListingController::class, 'show'])->name('listings.show');
     
     
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-        })->middleware(['auth', 'verified'])->name('dashboard');
-        require __DIR__ . '/auth.php';
+Route::get('/dashboard', function () {
+    return view('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
+    require __DIR__ . '/auth.php';
         
-
