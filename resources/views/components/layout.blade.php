@@ -9,8 +9,13 @@
 </head>
 
 <body>
+
     <nav>
         <h1>JobBoard App</h1>
+        <form action="{{route('logout')}}" method="POST">
+            @csrf
+            <button type="submit">Log Out</button>
+        </form>
     </nav>
 
     @if(session()->has('success'))
@@ -21,6 +26,7 @@
         {{session('success')}}
     </div>
     @endif
+
 
     {{$slot}}
 </body>
