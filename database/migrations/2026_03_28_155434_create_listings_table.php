@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('desc');
             $table->integer('salary')->nullable();
+            $table->string('tags')->nullable();
             $table->timestamps();
         });
     }

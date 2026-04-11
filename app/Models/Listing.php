@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Listing extends Model
 {
-    protected $fillable = ['title', 'salary', 'desc', 'user_id'];
+    protected $fillable = ['title', 'salary', 'desc', 'user_id', 'tags'];
     use HasFactory;
     
     public function user(): BelongsTo
